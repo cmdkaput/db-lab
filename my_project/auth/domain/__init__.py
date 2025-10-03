@@ -9,3 +9,4 @@ from .orders.Product import Product
 from .orders.Customer import Customer
 from .orders.Review import Review
 from .orders.Store import Store
+from .orders.Order import Order

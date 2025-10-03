@@ -63,6 +63,3 @@ coverage.xml
 
 # PyBuilder
 target/
-
-config/app.yml
-.env

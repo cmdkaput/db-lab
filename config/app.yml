@@ -1,0 +1,16 @@
+COMMON: &common
+  DEBUG: False
+  SQLALCHEMY_TRACK_MODIFICATIONS: False
+
+development:
+  <<: *common
+  DEBUG: True
+  SQLALCHEMY_DATABASE_URI: "mysql://daniel:qwerty1234!@cloudlab1db.mysql.database.azure.com/test"
+
+
+production:
+  <<: *common
+  SQLALCHEMY_DATABASE_URI: "mysql://daniel:qwerty1234!@cloudlab1db.mysql.database.azure.com/test"
+ADDITIONAL_CONFIG:
+  MYSQL_ROOT_USER: daniel 
+  MYSQL_ROOT_PASSWORD: qwerty1234!

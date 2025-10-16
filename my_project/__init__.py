@@ -44,7 +44,7 @@ def create_app(app_config: Dict[str, Any], additional_config: Dict[str, Any]) ->
 def _init_swagger(app: Flask) -> None:
     # A-lia Swagger
     restx_api = Api(app, title='My test backend',
-                    description='A simple backend')  # https://flask-restx.readthedocs.io/
+                    description='A simple backend')
 
     # @restx_api.route('/number/<string:todo_id>')
     # class TodoSimple(Resource):
@@ -79,10 +79,10 @@ def _init_docs(app: Flask) -> None:
                 }
             },
         }
-#123487987
+
         def add_collection(path: str, plural: str):
             spec["paths"][path] = {
-                "get": {"summary": f"List {plural}", "responses": {"200": {"description": "OK"}}},
+                # "get": {"summary": f"List {plural}", "responses": {"200": {"description": "OK"}}},
                 "post": {
                     "summary": f"Create {plural[:-1] if plural.endswith('s') else plural}",
                     "requestBody": {
@@ -100,11 +100,11 @@ def _init_docs(app: Flask) -> None:
 
         def add_by_id(path: str, singular: str):
             spec["paths"][path] = {
-                "get": {
-                    "summary": f"Get {singular} by id",
-                    "parameters": [{"in": "path", "name": "id", "required": True, "schema": {"$ref": "#/components/schemas/Id"}}],
-                    "responses": {"200": {"description": "OK"}, "404": {"description": "Not Found"}},
-                },
+                # "get": {
+                #     "summary": f"Get {singular} by id",
+                #     "parameters": [{"in": "path", "name": "id", "required": True, "schema": {"$ref": "#/components/schemas/Id"}}],
+                #     "responses": {"200": {"description": "OK"}, "404": {"description": "Not Found"}},
+                # },
                 "put": {
                     "summary": f"Update {singular}",
                     "parameters": [{"in": "path", "name": "id", "required": True, "schema": {"$ref": "#/components/schemas/Id"}}],

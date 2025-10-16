@@ -79,24 +79,24 @@ def _init_docs(app: Flask) -> None:
                 }
             },
         }
-#1234
-        def add_collection(path: str, plural: str):
-            spec["paths"][path] = {
-                "get": {"summary": f"List {plural}", "responses": {"200": {"description": "OK"}}},
-                "post": {
-                    "summary": f"Create {plural[:-1] if plural.endswith('s') else plural}",
-                    "requestBody": {
-                        "required": True,
-                        "content": {
-                            "application/json": {
-                                "schema": {"type": "object", "additionalProperties": True},
-                                "example": {"key": "value"}
-                            }
-                        }
-                    },
-                    "responses": {"201": {"description": "Created"}},
-                },
-            }
+#123487987
+        # def add_collection(path: str, plural: str):
+        #     spec["paths"][path] = {
+        #         "get": {"summary": f"List {plural}", "responses": {"200": {"description": "OK"}}},
+        #         "post": {
+        #             "summary": f"Create {plural[:-1] if plural.endswith('s') else plural}",
+        #             "requestBody": {
+        #                 "required": True,
+        #                 "content": {
+        #                     "application/json": {
+        #                         "schema": {"type": "object", "additionalProperties": True},
+        #                         "example": {"key": "value"}
+        #                     }
+        #                 }
+        #             },
+        #             "responses": {"201": {"description": "Created"}},
+        #         },
+        #     }
 
         def add_by_id(path: str, singular: str):
             spec["paths"][path] = {

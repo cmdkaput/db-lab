@@ -46,16 +46,16 @@ def _init_swagger(app: Flask) -> None:
     restx_api = Api(app, title='My test backend',
                     description='A simple backend')  # https://flask-restx.readthedocs.io/
 
-    @restx_api.route('/number/<string:todo_id>')
-    class TodoSimple(Resource):
-        @staticmethod
-        def get(todo_id):
-            return todos, 202
+    # @restx_api.route('/number/<string:todo_id>')
+    # class TodoSimple(Resource):
+    #     @staticmethod
+    #     def get(todo_id):
+    #         return todos, 202
 
-        @staticmethod
-        def put(todo_id):
-            todos[todo_id] = todo_id
-            return todos, HTTPStatus.CREATED
+    #     @staticmethod
+    #     def put(todo_id):
+    #         todos[todo_id] = todo_id
+    #         return todos, HTTPStatus.CREATED
 
     @app.route("/hi")
     def hello_world():
@@ -80,23 +80,23 @@ def _init_docs(app: Flask) -> None:
             },
         }
 #123487987
-        # def add_collection(path: str, plural: str):
-        #     spec["paths"][path] = {
-        #         "get": {"summary": f"List {plural}", "responses": {"200": {"description": "OK"}}},
-        #         "post": {
-        #             "summary": f"Create {plural[:-1] if plural.endswith('s') else plural}",
-        #             "requestBody": {
-        #                 "required": True,
-        #                 "content": {
-        #                     "application/json": {
-        #                         "schema": {"type": "object", "additionalProperties": True},
-        #                         "example": {"key": "value"}
-        #                     }
-        #                 }
-        #             },
-        #             "responses": {"201": {"description": "Created"}},
-        #         },
-        #     }
+        def add_collection(path: str, plural: str):
+            spec["paths"][path] = {
+                "get": {"summary": f"List {plural}", "responses": {"200": {"description": "OK"}}},
+                "post": {
+                    "summary": f"Create {plural[:-1] if plural.endswith('s') else plural}",
+                    "requestBody": {
+                        "required": True,
+                        "content": {
+                            "application/json": {
+                                "schema": {"type": "object", "additionalProperties": True},
+                                "example": {"key": "value"}
+                            }
+                        }
+                    },
+                    "responses": {"201": {"description": "Created"}},
+                },
+            }
 
         def add_by_id(path: str, singular: str):
             spec["paths"][path] = {

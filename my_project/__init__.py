@@ -79,7 +79,7 @@ def _init_docs(app: Flask) -> None:
                 }
             },
         }
-
+#1234
         def add_collection(path: str, plural: str):
             spec["paths"][path] = {
                 "get": {"summary": f"List {plural}", "responses": {"200": {"description": "OK"}}},
